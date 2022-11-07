@@ -5,7 +5,7 @@ import Header from "../components/Header/Header";
 
 const Main = () => {
   return (
-    <div>
+    <div className="dark:bg-gray-800">
       <Header />
       <Outlet />
       <Footer />
