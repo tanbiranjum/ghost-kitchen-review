@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
   return (
     <header className="p-4 dark:bg-gray-800 dark:text-gray-100">
       <div className="container flex justify-between h-16 mx-auto">
@@ -61,9 +70,19 @@ const Header = () => {
           </ul>
         </div>
         <div className="items-center flex-shrink-0 hidden lg:flex">
-          <button className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">
-            Log in
-          </button>
+          {!user?.uid && (
+            <button className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">
+              Log in
+            </button>
+          )}
+          {user?.uid && (
+            <button
+              className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+              onClick={handleLogout}
+            >
+              Log Out
+            </button>
+          )}
         </div>
         <button className="p-4 lg:hidden">
           <svg
