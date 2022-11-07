@@ -37,7 +37,7 @@ const Header = () => {
                 href="#"
                 className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent"
               >
-                Link
+                Home
               </a>
             </li>
             <li className="flex">
@@ -46,7 +46,7 @@ const Header = () => {
                 href="#"
                 className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400"
               >
-                Link
+                Kitchens
               </a>
             </li>
             <li className="flex">
@@ -55,7 +55,7 @@ const Header = () => {
                 href="#"
                 className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent"
               >
-                Link
+                Profile
               </a>
             </li>
             <li className="flex">
