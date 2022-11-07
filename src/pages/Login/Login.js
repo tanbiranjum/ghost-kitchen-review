@@ -32,7 +32,7 @@ const Login = () => {
               name="username"
               id="username"
               placeholder="Username"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-200 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+              className="w-full px-4 py-3 rounded-md border dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 outline-none focus:dark:border-violet-400"
             />
           </div>
           <div className="space-y-1 text-sm">
@@ -44,7 +44,7 @@ const Login = () => {
               name="password"
               id="password"
               placeholder="Password"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+              className="w-full px-4 py-3 rounded-md border outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
             />
             <div className="flex justify-end text-xs dark:text-gray-400">
               <a rel="noopener noreferrer" href="#">
