@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLoaderData, useParams } from "react-router-dom";
+import Review from "../../components/Review/Review";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { getTokenFromLocalStorage } from "../../utils/utils";
 
@@ -65,78 +66,43 @@ const KitchenView = () => {
           </div>
         </a>
       </div>
-      {/* Review Section */}
-      <div className="flex flex-col max-w-6xl mx-auto p-8 shadow-sm lg:p-12 dark:bg-gray-900 dark:text-gray-100">
-        <div className="flex flex-col items-center w-full">
-          <h2 className="text-3xl font-semibold text-center">
-            Your opinion matters!
-          </h2>
-          <div className="flex flex-col items-center py-6 space-y-3">
-            <span className="text-center">How was your experience?</span>
+      <section className="bg-white dark:bg-gray-900 py-8 lg:py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
+              Reviews ({(reviews && reviews.length) || 0})
+            </h2>
           </div>
-          <form
-            className="flex flex-col w-full"
-            onSubmit={handleSubmit(onSubmit)}
-          >
-            <textarea
-              rows="3"
-              placeholder="review..."
-              name="review"
-              {...register("review", { required: true })}
-              className="p-4 rounded-md border outline-none resize-none dark:text-gray-100 dark:bg-gray-900"
-            ></textarea>
+          <form className="mb-6">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+            >
+              <label htmlFor="comment" className="sr-only">
+                Your comment
+              </label>
+              <textarea
+                id="review"
+                name="review"
+                rows={6}
+                className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+                placeholder="Write a comment..."
+                {...register("review", { required: true })}
+              />
+            </form>
             <button
               type="submit"
-              className="py-4 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-violet-400"
+              className="inline-flex border items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
             >
-              Leave Review
+              Post review
             </button>
           </form>
+          {reviews &&
+            reviews.map((review) => (
+              <Review key={review._id} review={review} />
+            ))}
         </div>
-      </div>
-      {/* START */}
-      <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
-        <div className="overflow-x-auto">
-          <table className="min-w-full text-xs">
-            <thead className="dark:bg-gray-700">
-              <tr className="text-left">
-                <th className="p-3">Display Name</th>
-                <th className="p-3">Review</th>
-                <th className="p-3">Due</th>
-                <th className="p-3">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {reviews &&
-                reviews.map((review) => (
-                  <tr
-                    key={review._id}
-                    className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900"
-                  >
-                    <td className="p-3">
-                      <p>{review.displayName}</p>
-                    </td>
-                    <td className="p-3">
-                      <p>{review.content}</p>
-                    </td>
-                    <td className="p-3 text-right">
-                      <p>$15,792</p>
-                    </td>
-                    <td className="p-3 text-right">
-                      {user.uid === review.uid ? (
-                        <button className="px-3 py-1 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">
-                          <span>Delete</span>
-                        </button>
-                      ) : (
-                        ""
-                      )}
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      </section>
     </section>
   );
 };

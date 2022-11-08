@@ -34,13 +34,17 @@ const Header = () => {
           </a>
           <ul className="items-stretch hidden space-x-3 lg:flex">
             <li className="flex">
-              <a
+              <NavLink
                 rel="noopener noreferrer"
-                href="#"
-                className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent"
+                to="/"
+                className={({ isActive }) => {
+                  return isActive
+                    ? "flex items-center px-4 -mb-1 border-b-2 dark:border-violet-400"
+                    : "flex items-center px-4 -mb-1 border-b-2 dark:border-transparent";
+                }}
               >
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="flex">
               <NavLink
