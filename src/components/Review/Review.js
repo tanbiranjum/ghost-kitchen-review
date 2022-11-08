@@ -1,6 +1,19 @@
 import React from "react";
+import { getTokenFromLocalStorage } from "../../utils/utils";
 
-const Review = ({ review }) => {
+const Review = ({ review, reviews, setReviews }) => {
+  const handleDeleteReview = (id) => {
+    fetch(`http://localhost:5000/api/v1/reviews/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    }).then(() => {
+      const newReviews = reviews.filter((review) => review._id !== id);
+      setReviews(newReviews);
+    });
+  };
   return (
     <article className="p-6 mb-6 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
       <footer className="flex justify-between items-center mb-2">
@@ -47,7 +60,11 @@ const Review = ({ review }) => {
                 Edit
               </a>
             </li>
-            <li>
+            <li
+              onClick={() => {
+                handleDeleteReview(review._id);
+              }}
+            >
               <a
                 href="#"
                 className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"

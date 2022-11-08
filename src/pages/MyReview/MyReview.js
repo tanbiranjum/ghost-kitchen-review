@@ -24,7 +24,14 @@ const MyReview = () => {
   return (
     <>
       {reviews &&
-        reviews?.map((review) => <Review key={review._id} review={review} />)}
+        reviews?.map((review) => (
+          <Review
+            key={review._id}
+            review={review}
+            reviews={reviews}
+            setReviews={setReviews}
+          />
+        ))}
     </>
   );
 };
