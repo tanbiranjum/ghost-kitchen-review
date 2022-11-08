@@ -1,5 +1,4 @@
 import React from "react";
-import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link } from "react-router-dom";
 import ImageView from "../ImageView/ImageView";
 
@@ -7,10 +6,10 @@ const Card = ({ kitchen }) => {
   return (
     <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
       <div>
-        <ImageView src="https://source.unsplash.com/random/100x100/?5">
+        <ImageView src={kitchen.image}>
           <img
-            src="https://source.unsplash.com/random/100x100/?5"
-            alt=""
+            src={kitchen.image}
+            alt="kitchen image"
             className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500"
           />
         </ImageView>

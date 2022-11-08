@@ -95,7 +95,19 @@ const AddKitchen = () => {
                 id="address"
                 {...register("address", { required: true })}
                 type="text"
-                placeholder=""
+                placeholder="your address"
+                className="w-full rounded-md p-2 border outline-none focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+              />
+            </div>
+            <div className="col-span-full">
+              <label for="address" className="text-sm">
+                Price
+              </label>
+              <input
+                id="price"
+                {...register("price", { required: true })}
+                type="number"
+                placeholder="Starting price"
                 className="w-full rounded-md p-2 border outline-none focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
               />
             </div>
