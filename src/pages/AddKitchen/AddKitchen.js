@@ -4,7 +4,7 @@ import useDocumentTitle from "../../hooks/useDocumentTitle";
 import { getTokenFromLocalStorage } from "../../utils/utils";
 
 const AddKitchen = () => {
-  useDocumentTitle("Add Kitchen - Ghost Kitchen Reviews");
+  useDocumentTitle("Add Kitchen - Ghost Kitchen");
   const {
     register,
     handleSubmit,

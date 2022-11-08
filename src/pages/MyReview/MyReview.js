@@ -5,7 +5,7 @@ import { getTokenFromLocalStorage } from "../../utils/utils";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 const MyReview = () => {
-  useDocumentTitle("My Review - Ghost Kitchen Reviews");
+  useDocumentTitle("My Review - Ghost Kitchen");
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 

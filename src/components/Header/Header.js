@@ -13,6 +13,7 @@ const Header = () => {
     removeTokenFromLocalStorage();
     navigate("/login");
   };
+  // TODO - change header (use flowbite header)
   return (
     <header className="p-4 dark:bg-gray-800 dark:text-gray-100">
       <div className="container flex justify-between h-16 mx-auto">
@@ -23,7 +24,7 @@ const Header = () => {
             className="flex justify-center items-center p-2 gap-2"
           >
             <img src={Logo} alt="logo" className="w-10 h-10" />
-            <p className="text-lg text-yellow-500">Ghost Kitchen Review</p>
+            <p className="text-lg text-yellow-500">Ghost Kitchen</p>
           </Link>
           <ul className="items-stretch hidden space-x-3 lg:flex">
             <li className="flex">
