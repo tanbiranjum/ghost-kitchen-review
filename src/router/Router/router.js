@@ -6,6 +6,7 @@ import KitchenView from "../../pages/KitchenView/KitchenView";
 import Login from "../../pages/Login/Login";
 import MyReview from "../../pages/MyReview/MyReview";
 import Register from "../../pages/Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +41,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-reviews",
-        element: <MyReview />,
+        element: (
+          <PrivateRoute>
+            <MyReview />
+          </PrivateRoute>
+        ),
       },
     ],
   },
