@@ -25,7 +25,7 @@ const Review = ({ review, reviews, setReviews }) => {
           <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
             <img
               className="mr-2 w-6 h-6 rounded-full"
-              src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+              src={user.photoURL}
               alt="Bonnie Green"
             />
             {review.displayName}

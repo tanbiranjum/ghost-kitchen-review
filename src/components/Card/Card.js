@@ -5,7 +5,7 @@ import ImageView from "../ImageView/ImageView";
 
 const Card = ({ kitchen }) => {
   return (
-    <div className="flex flex-col max-w-sm p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
+    <div className="flex flex-col col-span-3 p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
       <div>
         <ImageView src={kitchen.image}>
           <img
@@ -72,7 +72,10 @@ const Card = ({ kitchen }) => {
           </button>
         </div>
       </div>
-      <Link className="btn gap-2 bg-violet-700 hover:bg-violet-900 text-white" to={`/kitchen/${kitchen._id}`}>
+      <Link
+        className="btn gap-2 bg-violet-700 hover:bg-violet-900 text-white"
+        to={`/kitchen/${kitchen._id}`}
+      >
         More
         <svg
           xmlns="http://www.w3.org/2000/svg"
