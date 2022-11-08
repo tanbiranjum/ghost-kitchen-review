@@ -11,38 +11,39 @@ const Card = ({ kitchen }) => {
           <img
             src={kitchen.image}
             alt="kitchen image"
-            className="object-cover w-full mb-4 h-60 sm:h-60 dark:bg-gray-500"
+            className="object-cover w-full mb-4 h-60 sm:h-48 dark:bg-gray-500"
           />
         </ImageView>
-        <h2 className="mb-1 text-xl font-semibold">{kitchen.name}</h2>
+        <div className="flex items-center justify-between gap-2">
+          <h2 className="mb-1 text-xl font-semibold">{kitchen.name}</h2>
+          <div className="flex">
+            {Array.from({ length: kitchen.rating }, (_, index) => (
+              <svg
+                key={index}
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#dc8e21"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            ))}
+          </div>
+        </div>
         <p className="text-sm dark:text-gray-400">
           {truncateString(kitchen.description)}
         </p>
       </div>
       <div className="flex flex-wrap justify-between">
         <div className="space-x-2">
-          <button
-            aria-label="Share this post"
-            type="button"
-            className="p-2 text-center"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              className="w-4 h-4 fill-current dark:text-violet-400"
-            >
-              <path d="M404,344a75.9,75.9,0,0,0-60.208,29.7L179.869,280.664a75.693,75.693,0,0,0,0-49.328L343.792,138.3a75.937,75.937,0,1,0-13.776-28.976L163.3,203.946a76,76,0,1,0,0,104.108l166.717,94.623A75.991,75.991,0,1,0,404,344Zm0-296a44,44,0,1,1-44,44A44.049,44.049,0,0,1,404,48ZM108,300a44,44,0,1,1,44-44A44.049,44.049,0,0,1,108,300ZM404,464a44,44,0,1,1,44-44A44.049,44.049,0,0,1,404,464Z"></path>
-            </svg>
-          </button>
-          <button aria-label="Bookmark this post" type="button" className="p-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              className="w-4 h-4 fill-current dark:text-violet-400"
-            >
-              <path d="M424,496H388.75L256.008,381.19,123.467,496H88V16H424ZM120,48V456.667l135.992-117.8L392,456.5V48Z"></path>
-            </svg>
-          </button>
+          <span className="text-base font-bold text-orange-700 dark:text-yellow-600">
+            Starting from: {kitchen.price}$
+          </span>
         </div>
         <div className="flex space-x-2 text-sm dark:text-gray-400">
           <button type="button" className="flex items-center p-1 space-x-1.5">
@@ -71,7 +72,7 @@ const Card = ({ kitchen }) => {
           </button>
         </div>
       </div>
-      <Link className="btn gap-2" to={`/kitchen/${kitchen._id}`}>
+      <Link className="btn gap-2 bg-violet-700 hover:bg-violet-900 text-white" to={`/kitchen/${kitchen._id}`}>
         More
         <svg
           xmlns="http://www.w3.org/2000/svg"

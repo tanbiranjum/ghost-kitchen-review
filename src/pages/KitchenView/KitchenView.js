@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLoaderData, useParams } from "react-router-dom";
+import ImageView from "../../components/ImageView/ImageView";
 import Review from "../../components/Review/Review";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { getTokenFromLocalStorage } from "../../utils/utils";
@@ -14,7 +15,7 @@ const KitchenView = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const kitchen = useLoaderData();
+  const { data: kitchen } = useLoaderData();
 
   const onSubmit = (data) => {
     fetch("http://localhost:5000/api/v1/reviews", {
@@ -45,26 +46,44 @@ const KitchenView = () => {
   return (
     <section className="dark:bg-gray-800 dark:text-gray-100">
       <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
-        <a
-          rel="noopener noreferrer"
-          href="#"
-          className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-900"
-        >
-          <img
-            src="https://source.unsplash.com/random/480x360"
-            alt=""
-            className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500"
-          />
+        <div className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-900">
+          <ImageView src={kitchen.image}>
+            <img
+              src={kitchen.image}
+              alt="image"
+              className="object-cover w-full rounded lg:col-span-7 dark:bg-gray-500"
+            />
+          </ImageView>
           <div className="p-6 space-y-2 lg:col-span-5">
-            <h3 className="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">
-              {kitchen.data.name}
+            <h3 className="text-2xl font-semibold sm:text-4xl">
+              {kitchen.name}
             </h3>
             <span className="text-xs dark:text-gray-400">
               February 19, 2021
             </span>
-            <p>{kitchen.data.description}</p>
+            <p>{kitchen.email}</p>
+            <p>{kitchen.website}</p>
+            <div className="flex gap-1 items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8a25e3"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <p>{kitchen.address}</p>
+            </div>
+            <p>{kitchen.description}</p>
+            <p>Starting from {kitchen.price}$</p>
           </div>
-        </a>
+        </div>
       </div>
       <section className="bg-white dark:bg-gray-900 py-8 lg:py-16">
         <div className="max-w-6xl mx-auto px-4">
