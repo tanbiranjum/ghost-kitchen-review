@@ -3,12 +3,14 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HashLoader } from "react-spinners";
 import { setTokenInLocalStorage } from "../../utils/utils";
 
 const schema = yup.object().shape({
+  displayName: yup.string().required(),
   email: yup.string().email().required(),
+  photoURL: yup.string(),
   password: yup.string().required(),
 });
 
@@ -23,13 +25,19 @@ const RegistrationForm = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const { registerUser, googleLogin, githubLogin } = useContext(AuthContext);
+  const { registerUser, updateUserProfile, googleLogin, githubLogin } =
+    useContext(AuthContext);
 
   const onSubmit = (data) => {
     setLoading(true);
     registerUser(data.email, data.password)
       .then((userCredential) => {
         setError("");
+        let { displayName, photoURL } = data;
+        photoURL =
+          photoURL ||
+          "https://flowbite.com/docs/images/people/profile-picture-5.jpg";
+        updateUserProfile({ displayName, photoURL });
         const uid = userCredential.user.uid;
         getTokenAndNavigate(uid);
       })
@@ -78,9 +86,20 @@ const RegistrationForm = () => {
       });
   };
 
+  const handleError = (error) => {
+    switch (error) {
+      case "auth/user-not-found":
+        return "User not found";
+      case "auth/wrong-password":
+        return "Wrong password";
+      default:
+        return "Something went wrong";
+    }
+  };
+
   return (
     <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
-      <h1 className="text-2xl font-bold text-center">Login</h1>
+      <h1 className="text-2xl font-bold text-center">Registration</h1>
       <p className="text-red-600 text-center">{error}</p>
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -88,7 +107,23 @@ const RegistrationForm = () => {
       >
         <div className="space-y-1 text-sm">
           <label htmlFor="email" className="block dark:text-gray-400">
-            email
+            Display Name
+          </label>
+          <input
+            type="text"
+            name="displayName"
+            id="displayName"
+            {...register("displayName")}
+            placeholder="John Doe"
+            className="w-full px-4 py-3 rounded-md border dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 outline-none focus:dark:border-violet-400"
+          />
+          <p className="dark:text-red-600">
+            {errors.displayName && errors.displayName.message}
+          </p>
+        </div>
+        <div className="space-y-1 text-sm">
+          <label htmlFor="email" className="block dark:text-gray-400">
+            Email
           </label>
           <input
             type="text"
@@ -100,6 +135,25 @@ const RegistrationForm = () => {
           />
           <p className="dark:text-red-600">
             {errors.email && errors.email.message}
+          </p>
+        </div>
+        <div className="space-y-1 text-sm">
+          <label htmlFor="email" className="block dark:text-gray-400">
+            Photo URL
+          </label>
+          <input
+            type="text"
+            name="photoURL"
+            id="photoURL"
+            {...register("photoURL")}
+            placeholder="picsum.photos/200"
+            className="w-full px-4 py-3 rounded-md border dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 outline-none focus:dark:border-violet-400"
+          />
+          <p className="text-xs text-cyan-500">
+            *If blank, placeholder image url will be used*
+          </p>
+          <p className="dark:text-red-600">
+            {errors.displayName && errors.displayName.message}
           </p>
         </div>
         <div className="space-y-1 text-sm">
@@ -117,20 +171,15 @@ const RegistrationForm = () => {
           <p className="dark:text-red-600">
             {errors.password && errors.password.message}
           </p>
-          <div className="flex justify-end text-xs dark:text-gray-400">
-            <a rel="noopener noreferrer" href="#">
-              Forgot Password?
-            </a>
-          </div>
         </div>
         <button className="flex justify-center items-center gap-1 w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">
-          Sign in <HashLoader loading={loading} color="green" size={20} />
+          Register <HashLoader loading={loading} color="green" size={20} />
         </button>
       </form>
       <div className="flex items-center pt-4 space-x-1">
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         <p className="px-3 text-sm dark:text-gray-400">
-          Login with social accounts
+          Register with social accounts
         </p>
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
       </div>
@@ -164,13 +213,13 @@ const RegistrationForm = () => {
       </div>
       <p className="text-xs text-center sm:px-6 dark:text-gray-400">
         Don't have an account?{" "}
-        <a
+        <Link
           rel="noopener noreferrer"
-          href="#"
+          to="/login"
           className="underline dark:text-gray-100"
         >
-          Sign up
-        </a>
+          Sign in
+        </Link>
       </p>
     </div>
   );

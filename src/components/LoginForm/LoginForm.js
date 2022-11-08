@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HashLoader } from "react-spinners";
 import { setTokenInLocalStorage } from "../../utils/utils";
 
@@ -176,13 +176,13 @@ const LoginForm = () => {
       </div>
       <p className="text-xs text-center sm:px-6 dark:text-gray-400">
         Don't have an account?{" "}
-        <a
+        <Link
           rel="noopener noreferrer"
-          href="#"
+          to="/register"
           className="underline dark:text-gray-100"
         >
           Sign up
-        </a>
+        </Link>
       </p>
     </div>
   );

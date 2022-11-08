@@ -8,6 +8,7 @@ import {
   signOut,
   GithubAuthProvider,
   GoogleAuthProvider,
+  updateProfile,
 } from "firebase/auth";
 
 import app from "../../firebase/firebase.config";
@@ -36,6 +37,10 @@ const AuthProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const updateUserProfile = (profile) => {
+    return updateProfile(auth.currentUser, profile);
   };
 
   const login = (email, password) => {
@@ -79,7 +84,8 @@ const AuthProvider = ({ children }) => {
     googleLogin,
     githubLogin,
     logout,
-    loading
+    loading,
+    updateUserProfile,
   };
 
   return (

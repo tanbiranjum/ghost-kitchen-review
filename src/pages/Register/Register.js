@@ -1,4 +1,5 @@
 import React from "react";
+import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 const Register = () => {
@@ -16,7 +17,7 @@ const Register = () => {
         </div>
         <img src="assets/svg/doodle.svg" alt="" className="p-6 h-52 md:h-64" />
       </div>
-      // TODO - Add RegisterForm component
+      <RegistrationForm />
     </div>
   );
 };
