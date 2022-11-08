@@ -7,7 +7,7 @@ const Home = () => {
   const kitchens = useLoaderData();
   useDocumentTitle("Home - Ghost Kitchen Review", true);
   return (
-    <div>
+    <div className="container flex gap-6 py-6 max-w-6xl mx-auto">
       {!kitchens && <div>Loading...</div>}
       {kitchens &&
         kitchens?.data.map((kitchen) => (

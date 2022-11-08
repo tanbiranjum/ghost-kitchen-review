@@ -1,20 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { truncateString } from "../../utils/utils";
 import ImageView from "../ImageView/ImageView";
 
 const Card = ({ kitchen }) => {
   return (
-    <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
+    <div className="flex flex-col max-w-sm p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
       <div>
         <ImageView src={kitchen.image}>
           <img
             src={kitchen.image}
             alt="kitchen image"
-            className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500"
+            className="object-cover w-full mb-4 h-60 sm:h-60 dark:bg-gray-500"
           />
         </ImageView>
         <h2 className="mb-1 text-xl font-semibold">{kitchen.name}</h2>
-        <p className="text-sm dark:text-gray-400">{kitchen.description}</p>
+        <p className="text-sm dark:text-gray-400">
+          {truncateString(kitchen.description)}
+        </p>
       </div>
       <div className="flex flex-wrap justify-between">
         <div className="space-x-2">
