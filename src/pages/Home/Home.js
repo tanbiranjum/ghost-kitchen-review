@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Card from "../../components/Card/Card";
+import Hero from "../../components/Hero/Hero";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
   useDocumentTitle("Home - Ghost Kitchen Review", true);
   return (
     <div className="container py-6 max-w-6xl mx-auto">
+      <Hero />
       {!kitchens && <div>Loading...</div>}
       <div className="flex gap-6 ">
         {kitchens &&

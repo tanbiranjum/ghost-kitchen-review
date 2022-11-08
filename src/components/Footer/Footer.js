@@ -42,4 +42,9 @@ const Footer = () => {
   );
 };
 
+// TODO 1. Link shoud be updated
+// TODO 2. Add Menu
+// TODO 3. Add Social Links
+// TODO 4. Add copy right
+
 export default Footer;
