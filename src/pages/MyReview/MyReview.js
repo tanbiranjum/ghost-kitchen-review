@@ -24,7 +24,7 @@ const MyReview = () => {
   }, []);
 
   return (
-    <>
+    <div className="max-w-6xl mx-auto mt-4">
       {reviews &&
         reviews?.map((review) => (
           <Review
@@ -34,7 +34,7 @@ const MyReview = () => {
             setReviews={setReviews}
           />
         ))}
-    </>
+    </div>
   );
 };
 
