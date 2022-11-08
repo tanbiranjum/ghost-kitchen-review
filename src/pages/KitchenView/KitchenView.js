@@ -6,6 +6,8 @@ import Review from "../../components/Review/Review";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { getTokenFromLocalStorage } from "../../utils/utils";
 
+import { MapPinIcon, AtSymbolIcon, LinkIcon } from "@heroicons/react/20/solid";
+
 const KitchenView = () => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
@@ -61,27 +63,22 @@ const KitchenView = () => {
             <span className="text-xs dark:text-gray-400">
               February 19, 2021
             </span>
-            <p>{kitchen.email}</p>
-            <p>{kitchen.website}</p>
             <div className="flex gap-1 items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#8a25e3"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
+              <AtSymbolIcon className="w-5 h-5 text-violet-700" />
+              <p>{kitchen.email}</p>
+            </div>
+            <div className="flex gap-1 items-center">
+              <LinkIcon className="w-5 h-5 text-violet-700" />
+              <p>{kitchen.website}</p>
+            </div>
+            <div className="flex gap-1 items-center">
+              <MapPinIcon className="w-5 h-5 text-violet-700" />
               <p>{kitchen.address}</p>
             </div>
             <p>{kitchen.description}</p>
-            <p>Starting from {kitchen.price}$</p>
+            <p className="text-lg font-bold dark:text-yellow-600">
+              Starting from {kitchen.price}$
+            </p>
           </div>
         </div>
       </div>

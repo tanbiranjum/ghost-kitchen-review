@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import AddKitchen from "../../pages/AddKitchen/AddKitchen";
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 import Home from "../../pages/Home/Home";
 import Kitchen from "../../pages/Kitchen/Kitchen";
 import KitchenView from "../../pages/KitchenView/KitchenView";
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
             <AddKitchen />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ],
   },
