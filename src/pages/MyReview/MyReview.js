@@ -23,6 +23,8 @@ const MyReview = () => {
       });
   }, []);
 
+  // TODO - If the user doesn't add any review, the page will show 'No reviews were added' at the middle of the page
+
   return (
     <div className="max-w-6xl mx-auto mt-4">
       {reviews &&

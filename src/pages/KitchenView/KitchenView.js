@@ -36,7 +36,7 @@ const KitchenView = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setReviews([...reviews, data.data]);
+        setReviews([data.data, ...reviews]);
       });
   };
 

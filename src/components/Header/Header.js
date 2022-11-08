@@ -16,14 +16,14 @@ const Header = () => {
   return (
     <header className="p-4 dark:bg-gray-800 dark:text-gray-100">
       <div className="container flex justify-between h-16 mx-auto">
-        <div className="flex">
+        <div className="flex justify-between w-full">
           <Link
             to="/"
             aria-label="Back to homepage"
-            className="flex flex-col items-center p-2 gap-2"
+            className="flex justify-center items-center p-2 gap-2"
           >
-            <img src={Logo} alt="logo" className="w-8 h-8" />
-            <p className="text-xs">Ghost Kitchen Review</p>
+            <img src={Logo} alt="logo" className="w-10 h-10" />
+            <p className="text-lg text-yellow-500">Ghost Kitchen Review</p>
           </Link>
           <ul className="items-stretch hidden space-x-3 lg:flex">
             <li className="flex">

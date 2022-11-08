@@ -17,7 +17,7 @@ const Home = () => {
       </div>
       <Link
         to="/kitchen"
-        className="btn bg-violet-700 hover:bg-violet-900 mt-4 text-white"
+        className="btn bg-violet-700 hover:bg-violet-900 mt-4 text-white shadow-sm"
       >
         SEE ALL
       </Link>
