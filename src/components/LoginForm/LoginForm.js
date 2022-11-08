@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { HashLoader } from "react-spinners";
+import { setTokenInLocalStorage } from "../../utils/utils";
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -28,9 +29,10 @@ const LoginForm = () => {
   const onSubmit = (data) => {
     setLoading(true);
     login(data.email, data.password)
-      .then(() => {
+      .then((userCredential) => {
         setError("");
-        navigate("/");
+        const uid = userCredential.user.uid;
+        getTokenAndNavigate(uid);
       })
       .catch((error) => {
         setLoading(false);
@@ -51,9 +53,10 @@ const LoginForm = () => {
 
   const handleGoogleLogin = () => {
     googleLogin()
-      .then(() => {
+      .then((userCredential) => {
         setError("");
-        navigate("/");
+        const uid = userCredential.user.uid;
+        getTokenAndNavigate(uid);
       })
       .catch((error) => {
         setError(handleError(error.code));
@@ -62,12 +65,28 @@ const LoginForm = () => {
 
   const handleGithubLogin = () => {
     githubLogin()
-      .then(() => {
+      .then((userCredential) => {
         setError("");
-        navigate("/");
+        const uid = userCredential.user.uid;
+        getTokenAndNavigate(uid);
       })
       .catch((error) => {
         setError(handleError(error.code));
+      });
+  };
+
+  const getTokenAndNavigate = (uid) => {
+    fetch("http://localhost:5000/api/v1/auth/token", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        uid: uid,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setTokenInLocalStorage(data.token);
+        navigate("/");
       });
   };
 

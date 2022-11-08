@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { removeTokenFromLocalStorage } from "../../utils/utils";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
@@ -8,6 +9,7 @@ const Header = () => {
 
   const handleLogout = () => {
     logout();
+    removeTokenFromLocalStorage();
     navigate("/login");
   };
   return (
