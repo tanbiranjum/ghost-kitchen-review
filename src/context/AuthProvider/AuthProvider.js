@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const register = (email, password) => {
+  const registerUser = (email, password) => {
     try {
       return createUserWithEmailAndPassword(auth, email, password);
     } catch (error) {
@@ -74,7 +74,7 @@ const AuthProvider = ({ children }) => {
 
   const value = {
     user,
-    register,
+    registerUser,
     login,
     googleLogin,
     githubLogin,
