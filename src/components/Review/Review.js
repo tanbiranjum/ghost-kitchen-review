@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { getTokenFromLocalStorage } from "../../utils/utils";
+import ReviewUpdateForm from "../ReviewUpdateForm/ReviewUpdateForm";
 
 const Review = ({ review, reviews, setReviews }) => {
   const { user } = useContext(AuthContext);
+  const [reviewContent, setReviewContent] = useState(review.content);
   const handleDeleteReview = (id) => {
     fetch(`http://localhost:5000/api/v1/reviews/${id}`, {
       method: "DELETE",
@@ -57,7 +59,7 @@ const Review = ({ review, reviews, setReviews }) => {
             {user?.uid === review.uid && (
               <li>
                 <a
-                  href="#"
+                  href="#update-review"
                   className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
                   Edit
@@ -89,7 +91,23 @@ const Review = ({ review, reviews, setReviews }) => {
           </ul>
         </div>
       </footer>
-      <p className="text-gray-500 dark:text-gray-400">{review.content}</p>
+      <p className="text-gray-500 dark:text-gray-400">{reviewContent}</p>
+      <>
+        <div className="modal" id="update-review">
+          <div className="modal-box">
+            <ReviewUpdateForm
+              id={review._id}
+              reviewContent={reviewContent}
+              setReviewContent={setReviewContent}
+            />
+            <div className="modal-action">
+              <a href="#" className="btn">
+                Close
+              </a>
+            </div>
+          </div>
+        </div>
+      </>
     </article>
   );
 };

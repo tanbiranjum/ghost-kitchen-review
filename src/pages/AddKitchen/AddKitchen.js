@@ -1,8 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 import { getTokenFromLocalStorage } from "../../utils/utils";
 
 const AddKitchen = () => {
+  useDocumentTitle("Add Kitchen - Ghost Kitchen Reviews");
   const {
     register,
     handleSubmit,
@@ -16,7 +18,7 @@ const AddKitchen = () => {
         "Content-Type": "application/json",
         "auth-token": `Bearer ${getTokenFromLocalStorage()}`,
       },
-        body: JSON.stringify(data)
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((data) => {
