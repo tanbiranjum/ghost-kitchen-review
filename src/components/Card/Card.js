@@ -1,19 +1,18 @@
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
+import ImageView from "../ImageView/ImageView";
 
 const Card = ({ kitchen }) => {
   return (
     <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
       <div>
-        <PhotoProvider>
-          <PhotoView src="https://source.unsplash.com/random/100x100/?5">
-            <img
-              src="https://source.unsplash.com/random/100x100/?5"
-              alt=""
-              className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500"
-            />
-          </PhotoView>
-        </PhotoProvider>
+        <ImageView src="https://source.unsplash.com/random/100x100/?5">
+          <img
+            src="https://source.unsplash.com/random/100x100/?5"
+            alt=""
+            className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500"
+          />
+        </ImageView>
         <h2 className="mb-1 text-xl font-semibold">{kitchen.name}</h2>
         <p className="text-sm dark:text-gray-400">{kitchen.description}</p>
       </div>
