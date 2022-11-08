@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
+import AddKitchen from "../../pages/AddKitchen/AddKitchen";
 import Home from "../../pages/Home/Home";
 import Kitchen from "../../pages/Kitchen/Kitchen";
 import KitchenView from "../../pages/KitchenView/KitchenView";
@@ -44,6 +45,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyReview />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/add-kitchen",
+        element: (
+          <PrivateRoute>
+            <AddKitchen />
           </PrivateRoute>
         ),
       },
