@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { getTokenFromLocalStorage } from "../../utils/utils";
 
 const Review = ({ review, reviews, setReviews }) => {
+  const { user } = useContext(AuthContext);
   const handleDeleteReview = (id) => {
     fetch(`http://localhost:5000/api/v1/reviews/${id}`, {
       method: "DELETE",
@@ -34,7 +36,7 @@ const Review = ({ review, reviews, setReviews }) => {
         </div>
         <div className="inline-flex items-center dropdown">
           <label
-            tabIndex={0}
+            tabIndex={review._id}
             className="p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           >
             <svg
@@ -49,29 +51,33 @@ const Review = ({ review, reviews, setReviews }) => {
             <span className="sr-only">Comment settings</span>
           </label>
           <ul
-            tabIndex={0}
+            tabIndex={review._id}
             className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            {user?.uid === review.uid && (
+              <li>
+                <a
+                  href="#"
+                  className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  Edit
+                </a>
+              </li>
+            )}
+            {user?.uid === review.uid && (
+              <li
+                onClick={() => {
+                  handleDeleteReview(review._id);
+                }}
               >
-                Edit
-              </a>
-            </li>
-            <li
-              onClick={() => {
-                handleDeleteReview(review._id);
-              }}
-            >
-              <a
-                href="#"
-                className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >
-                Remove
-              </a>
-            </li>
+                <a
+                  href="#"
+                  className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  Remove
+                </a>
+              </li>
+            )}
             <li>
               <a
                 href="#"

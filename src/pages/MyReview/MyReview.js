@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import Review from "../../components/Review/Review";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { getTokenFromLocalStorage } from "../../utils/utils";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 const MyReview = () => {
+  useDocumentTitle("My Review - Ghost Kitchen Reviews");
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 

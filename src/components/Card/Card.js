@@ -1,5 +1,6 @@
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
+import { Link } from "react-router-dom";
 import ImageView from "../ImageView/ImageView";
 
 const Card = ({ kitchen }) => {
@@ -68,6 +69,23 @@ const Card = ({ kitchen }) => {
           </button>
         </div>
       </div>
+      <Link className="btn gap-2" to={`/kitchen/${kitchen._id}`}>
+        More
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#ffff"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M14 9l6 6-6 6" />
+          <path d="M4 4v7a4 4 0 0 0 4 4h11" />
+        </svg>
+      </Link>
     </div>
   );
 };

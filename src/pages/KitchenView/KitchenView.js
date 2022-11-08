@@ -73,11 +73,8 @@ const KitchenView = () => {
               Reviews ({(reviews && reviews.length) || 0})
             </h2>
           </div>
-          <form className="mb-6">
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700"
-            >
+          <form className="mb-6" onSubmit={handleSubmit(onSubmit)}>
+            <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
               <label htmlFor="comment" className="sr-only">
                 Your comment
               </label>
@@ -89,7 +86,7 @@ const KitchenView = () => {
                 placeholder="Write a comment..."
                 {...register("review", { required: true })}
               />
-            </form>
+            </div>
             <button
               type="submit"
               className="inline-flex border items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
