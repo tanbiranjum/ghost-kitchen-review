@@ -26,6 +26,7 @@ const KitchenView = () => {
         content: data.review,
         kitchenId: params.id,
         uid: user.uid,
+        userEmail: user.email,
         displayName: user.displayName,
       }),
     })

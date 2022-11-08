@@ -4,6 +4,7 @@ import Home from "../../pages/Home/Home";
 import Kitchen from "../../pages/Kitchen/Kitchen";
 import KitchenView from "../../pages/KitchenView/KitchenView";
 import Login from "../../pages/Login/Login";
+import MyReview from "../../pages/MyReview/MyReview";
 import Register from "../../pages/Register/Register";
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         loader: async ({ params }) => {
           return fetch(`http://localhost:5000/api/v1/kitchens/${params.id}`);
         },
+      },
+      {
+        path: "/my-reviews",
+        element: <MyReview />,
       },
     ],
   },

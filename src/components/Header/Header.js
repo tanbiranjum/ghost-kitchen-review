@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { removeTokenFromLocalStorage } from "../../utils/utils";
 
@@ -43,22 +43,30 @@ const Header = () => {
               </a>
             </li>
             <li className="flex">
-              <a
+              <NavLink
                 rel="noopener noreferrer"
-                href="#"
-                className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400"
+                to="/kitchen"
+                className={({ isActive }) => {
+                  return isActive
+                    ? "flex items-center px-4 -mb-1 border-b-2 dark:border-violet-400"
+                    : "flex items-center px-4 -mb-1 border-b-2 dark:border-transparent";
+                }}
               >
                 Kitchens
-              </a>
+              </NavLink>
             </li>
             <li className="flex">
-              <a
+              <NavLink
                 rel="noopener noreferrer"
-                href="#"
-                className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent"
+                to="/my-reviews"
+                className={({ isActive }) => {
+                  return isActive
+                    ? "flex items-center px-4 -mb-1 border-b-2 dark:border-violet-400"
+                    : "flex items-center px-4 -mb-1 border-b-2 dark:border-transparent";
+                }}
               >
-                Profile
-              </a>
+                My Reviews
+              </NavLink>
             </li>
             <li className="flex">
               <a
