@@ -18,15 +18,8 @@ const Review = ({ review, reviews, setReviews }) => {
         "auth-token": `Bearer ${getTokenFromLocalStorage()}`,
       },
     }).then(() => {
-      if (reviews.length > 0) {
-        const newReviews = reviews.filter((review) => review._id !== id);
-        setReviews(newReviews);
-        toast.success("Deleted sucessfully!", {
-          icon: "😸",
-        });
-        return;
-      }
-      setReviews([]);
+      const newReviews = reviews.filter((review) => review._id !== id);
+      setReviews(newReviews);
       toast.success("Deleted sucessfully!", {
         icon: "😸",
       });

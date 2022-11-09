@@ -42,7 +42,9 @@ const KitchenView = () => {
   };
 
   useEffect(() => {
-    fetch(`https://ghost-kitchen-server.vercel.app/api/v1/reviews/kitchens/${params.id}`)
+    fetch(
+      `https://ghost-kitchen-server.vercel.app/api/v1/reviews/kitchens/${params.id}`
+    )
       .then((res) => res.json())
       .then((data) => setReviews(data.data));
   }, []);
@@ -128,7 +130,12 @@ const KitchenView = () => {
 
           {reviews &&
             reviews.map((review) => (
-              <Review key={review._id} review={review} />
+              <Review
+                key={review._id}
+                review={review}
+                reviews={reviews}
+                setReviews={setReviews}
+              />
             ))}
         </div>
       </section>
