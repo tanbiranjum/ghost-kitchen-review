@@ -11,7 +11,7 @@ const Review = ({ review, reviews, setReviews }) => {
   const location = useLocation();
 
   const handleDeleteReview = (id) => {
-    fetch(`http://localhost:5000/api/v1/reviews/${id}`, {
+    fetch(`/api/v1/reviews/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

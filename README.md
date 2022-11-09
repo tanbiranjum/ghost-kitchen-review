@@ -1,10 +1,10 @@
-# Paws School
+# Ghost Kitchen
 
-Learn how to pet taught by the world best instructor.
+Give reviews to all cloud kitchen in service.
 
 ## Live Link
 
-- [Paws School](https://paws-school.web.app/)
+- [Ghost Kitchen](https://ghost-kitchen-server.vercel.app/)
 
 ## Features
 

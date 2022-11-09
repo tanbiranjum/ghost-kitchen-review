@@ -13,7 +13,7 @@ const AddKitchen = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/api/v1/kitchens", {
+    fetch("/api/v1/kitchens", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

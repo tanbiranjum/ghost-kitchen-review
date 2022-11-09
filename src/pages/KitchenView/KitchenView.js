@@ -20,7 +20,7 @@ const KitchenView = () => {
   const { data: kitchen } = useLoaderData();
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/api/v1/reviews", {
+    fetch("/api/v1/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const KitchenView = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/reviews/kitchens/${params.id}`)
+    fetch(`/api/v1/reviews/kitchens/${params.id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data.data));
   }, []);

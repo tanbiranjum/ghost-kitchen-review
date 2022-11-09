@@ -19,7 +19,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: async () => {
-          return fetch("http://localhost:5000/api/v1/kitchens?limit=3");
+          return fetch("/api/v1/kitchens?limit=3");
         },
       },
       {
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         path: "/kitchen/:id",
         element: <KitchenView />,
         loader: async ({ params }) => {
-          return fetch(`http://localhost:5000/api/v1/kitchens/${params.id}`);
+          return fetch(`/api/v1/kitchens/${params.id}`);
         },
       },
       {

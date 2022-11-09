@@ -73,7 +73,7 @@ const RegistrationForm = () => {
   };
 
   const getTokenAndNavigate = (uid) => {
-    fetch("http://localhost:5000/api/v1/auth/token", {
+    fetch("/api/v1/auth/token", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
