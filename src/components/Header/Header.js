@@ -58,24 +58,38 @@ const Header = () => {
                 Kitchen
               </NavLink>
             </li>
+            {!user?.uid && (
+              <li>
+                <NavLink
+                  to="/my-reviews"
+                  className={({ isActive }) => {
+                    return isActive ? "text-white" : "";
+                  }}
+                >
+                  My Reviews
+                </NavLink>
+              </li>
+            )}
+            {!user?.uid && (
+              <li>
+                <NavLink
+                  to="/add-kitchen"
+                  className={({ isActive }) => {
+                    return isActive ? "text-white" : "";
+                  }}
+                >
+                  Add Kitchen
+                </NavLink>
+              </li>
+            )}
             <li>
               <NavLink
-                to="/my-reviews"
+                to="/blog"
                 className={({ isActive }) => {
                   return isActive ? "text-white" : "";
                 }}
               >
-                My Reviews
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/add-kitchen"
-                className={({ isActive }) => {
-                  return isActive ? "text-white" : "";
-                }}
-              >
-                Add Kitchen
+                Blog
               </NavLink>
             </li>
           </ul>
@@ -111,24 +125,38 @@ const Header = () => {
               Kitchen
             </NavLink>
           </li>
+          {!user?.uid && (
+            <li>
+              <NavLink
+                to="/my-reviews"
+                className={({ isActive }) => {
+                  return isActive ? "text-white" : "";
+                }}
+              >
+                My Reviews
+              </NavLink>
+            </li>
+          )}
+          {!user?.uid && (
+            <li>
+              <NavLink
+                to="/add-kitchen"
+                className={({ isActive }) => {
+                  return isActive ? "text-white" : "";
+                }}
+              >
+                Add Kitchen
+              </NavLink>
+            </li>
+          )}
           <li>
             <NavLink
-              to="/my-reviews"
+              to="/blog"
               className={({ isActive }) => {
                 return isActive ? "text-white" : "";
               }}
             >
-              My Reviews
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/add-kitchen"
-              className={({ isActive }) => {
-                return isActive ? "text-white" : "";
-              }}
-            >
-              Add Kitchen
+              Blog
             </NavLink>
           </li>
         </ul>

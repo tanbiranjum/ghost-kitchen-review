@@ -38,20 +38,7 @@ const MyReview = () => {
 
   return (
     <div className="max-w-6xl mx-auto mt-4">
-      <div className="flex flex-col justify-center items-center">
-        {reviews.length === 0 && (
-          <>
-            <Lottie options={defaultOptions} height={250} width={250} />
-            <p className="text-yellow-500 text-4xl font-bold mt-4">
-              Oh! Looks Like it's Empty Space!
-            </p>
-            <p className="text-base text-violet-700 font-bold">
-              No reviews were added.
-            </p>
-          </>
-        )}
-      </div>
-      {reviews &&
+      {reviews ? (
         reviews?.map((review) => (
           <Review
             key={review._id}
@@ -59,7 +46,18 @@ const MyReview = () => {
             reviews={reviews}
             setReviews={setReviews}
           />
-        ))}
+        ))
+      ) : (
+        <div className="flex flex-col justify-center items-center">
+          <Lottie options={defaultOptions} height={250} width={250} />
+          <p className="text-yellow-500 text-4xl font-bold mt-4">
+            Oh! Looks Like it's Empty Space!
+          </p>
+          <p className="text-base text-violet-700 font-bold">
+            No reviews were added.
+          </p>
+        </div>
+      )}
     </div>
   );
 };

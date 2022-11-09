@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 import { getTokenFromLocalStorage } from "../../utils/utils";
 
@@ -22,7 +23,14 @@ const AddKitchen = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert("Kitchen added successfully");
+        toast.success("Kitchen added successfully!", {
+          icon: "🎉",
+        });
+      })
+      .catch((err) => {
+        toast.error("Something went wrong", {
+          icon: "😭",
+        });
       });
   };
   return (

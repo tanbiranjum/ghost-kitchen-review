@@ -33,9 +33,6 @@ const router = createBrowserRouter([
       {
         path: "/kitchen",
         element: <Kitchen />,
-        loader: async () => {
-          return fetch("http://localhost:5000/api/v1/kitchens");
-        },
       },
       {
         path: "/kitchen/:id",

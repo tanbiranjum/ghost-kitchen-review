@@ -6,7 +6,7 @@ import Logo from "../../assets/ghost.png";
 
 const Footer = () => {
   return (
-    <footer className="p-4 bg-white md:p-6 lg:p-6 dark:bg-gray-800">
+    <footer className="p-4 bg-white md:p-6 lg:p-6 dark:bg-violet-900">
       <div className="mx-auto max-w-screen-xl text-center">
         <Link
           to="/"
