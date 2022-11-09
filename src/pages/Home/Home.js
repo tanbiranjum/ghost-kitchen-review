@@ -27,13 +27,13 @@ const Home = () => {
       <Hero />
       <h2 className="text-3xl text-center mt-8 font-bold">Ghost Kitchen</h2>
       {loading && <LoadingSpinner />}
-      <div className="flex gap-6 max-w-7xl mx-auto mt-8">
+      <div className="grid px-6 lg:px-0 grid-cols-1 md:grid-cols-8 lg:grid-cols-9 gap-6 lg:max-w-7xl mx-auto mt-8">
         {kitchens &&
           kitchens?.map((kitchen) => (
             <Card key={kitchen._id} kitchen={kitchen} />
           ))}
       </div>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl px-6 lg:px-0 mx-auto">
         <Link
           to="/kitchen"
           className="btn bg-violet-700 hover:bg-violet-900 mt-4 text-white shadow-sm"
@@ -47,10 +47,10 @@ const Home = () => {
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
           <div className="mx-auto max-w-screen-md sm:text-center">
             <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white">
-              Sign up for our newsletter
+              Sign up for our Ghost newsletter
             </h2>
             <p className="mx-auto mb-8 max-w-2xl font-light text-gray-500 md:mb-12 sm:text-xl dark:text-gray-400">
-              Stay up to date with the roadmap progress, announcements and
+              Stay up to date with the ghost kitchen, announcements and
               exclusive discounts feel free to sign up with your email.
             </p>
             <form action="#">

@@ -5,7 +5,7 @@ import ImageView from "../ImageView/ImageView";
 
 const Card = ({ kitchen }) => {
   return (
-    <div className="flex flex-col col-span-3 p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
+    <div className="flex flex-col col-span-1 md:col-span-4 lg:col-span-3 p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
       <div>
         <ImageView src={kitchen.image}>
           <img

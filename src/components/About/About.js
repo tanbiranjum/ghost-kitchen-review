@@ -3,7 +3,7 @@ import YoutubeEmbed from "../YoutubeEmbed/YoutubeEmbed";
 
 const About = () => {
   return (
-    <div className="py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-7xl">
+    <div className="py-16 px-6 lg:px-0 mx-auto sm:max-w-xl md:max-w-full lg:max-w-7xl">
       <div className="grid gap-10 lg:grid-cols-2">
         <div className="lg:pr-10">
           <h5 className="mb-4 text-4xl text-white font-extrabold leading-none">
