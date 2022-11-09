@@ -6,6 +6,7 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { HashLoader } from "react-spinners";
 import { setTokenInLocalStorage } from "../../utils/utils";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -85,10 +86,14 @@ const LoginForm = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        setLoading(false);
         setTokenInLocalStorage(data.token);
         navigate("/");
       });
   };
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
@@ -100,7 +105,7 @@ const LoginForm = () => {
       >
         <div className="space-y-1 text-sm">
           <label htmlFor="email" className="block dark:text-gray-400">
-            email
+            Email
           </label>
           <input
             type="text"

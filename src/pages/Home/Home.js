@@ -1,21 +1,35 @@
-import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import About from "../../components/About/About";
 import Card from "../../components/Card/Card";
 import Hero from "../../components/Hero/Hero";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 const Home = () => {
-  const kitchens = useLoaderData();
+  const [kitchens, setKitchens] = useState([]);
+  const [loading, setLoading] = useState(true);
   useDocumentTitle("Home - Ghost Kitchen", true);
+
+  useEffect(() => {
+    fetch("/api/v1/kitchens?limit=3")
+      .then((res) => res.json())
+      .then((data) => {
+        setKitchens(data.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
   return (
     <div className="container">
       <Hero />
-      {!kitchens && <div>Loading...</div>}
       <h2 className="text-3xl text-center mt-8 font-bold">Ghost Kitchen</h2>
+      {loading && <LoadingSpinner />}
       <div className="flex gap-6 max-w-7xl mx-auto mt-8">
         {kitchens &&
-          kitchens?.data.map((kitchen) => (
+          kitchens?.map((kitchen) => (
             <Card key={kitchen._id} kitchen={kitchen} />
           ))}
       </div>

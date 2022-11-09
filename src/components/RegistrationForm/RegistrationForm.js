@@ -6,6 +6,7 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { HashLoader } from "react-spinners";
 import { setTokenInLocalStorage } from "../../utils/utils";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const schema = yup.object().shape({
   displayName: yup.string().required(),
@@ -82,6 +83,7 @@ const RegistrationForm = () => {
       .then((res) => res.json())
       .then((data) => {
         setTokenInLocalStorage(data.token);
+        setLoading(false);
         navigate("/");
       });
   };
@@ -96,6 +98,10 @@ const RegistrationForm = () => {
         return "Something went wrong";
     }
   };
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">

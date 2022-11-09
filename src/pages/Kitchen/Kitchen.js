@@ -20,7 +20,7 @@ const Kitchen = () => {
         setLoading(false);
         console.log(err);
       });
-  });
+  }, []);
   return (
     <div className="mx-auto max-w-6xl">
       <Link className="btn mt-4" to="/add-kitchen">
@@ -29,7 +29,7 @@ const Kitchen = () => {
       {loading && <LoadingSpinner />}
       <div className="container grid grid-cols-9 gap-6 py-6">
         {kitchens &&
-          kitchens?.data.map((kitchen) => (
+          kitchens?.map((kitchen) => (
             <Card key={kitchen._id} kitchen={kitchen} />
           ))}
       </div>

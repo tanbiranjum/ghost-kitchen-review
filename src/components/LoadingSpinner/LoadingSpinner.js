@@ -14,7 +14,7 @@ const defaultOptions = {
 const LoadingSpinner = () => {
   return (
     <div className="flex justify-center items-center">
-      <Lottie options={defaultOptions} height={250} width={250} />
+      <Lottie options={defaultOptions} height={300} width={300} />
     </div>
   );
 };

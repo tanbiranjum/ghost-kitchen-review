@@ -58,7 +58,7 @@ const Header = () => {
                 Kitchen
               </NavLink>
             </li>
-            {!user?.uid && (
+            {user?.uid && (
               <li>
                 <NavLink
                   to="/my-reviews"
@@ -70,7 +70,7 @@ const Header = () => {
                 </NavLink>
               </li>
             )}
-            {!user?.uid && (
+            {user?.uid && (
               <li>
                 <NavLink
                   to="/add-kitchen"
@@ -125,7 +125,7 @@ const Header = () => {
               Kitchen
             </NavLink>
           </li>
-          {!user?.uid && (
+          {user?.uid && (
             <li>
               <NavLink
                 to="/my-reviews"
@@ -137,7 +137,7 @@ const Header = () => {
               </NavLink>
             </li>
           )}
-          {!user?.uid && (
+          {user?.uid && (
             <li>
               <NavLink
                 to="/add-kitchen"

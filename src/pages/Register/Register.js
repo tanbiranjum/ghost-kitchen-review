@@ -1,6 +1,17 @@
 import React from "react";
+import Lottie from "react-lottie";
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
+import utensilsAnimation from "../../assets/cooking-green.json";
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: utensilsAnimation,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
 
 const Register = () => {
   useDocumentTitle("Register - Ghost Kitchen", true);
@@ -14,8 +25,8 @@ const Register = () => {
           <div className="dark:text-gray-400">
             Register to give review now! & Share your horror experience
           </div>
+          <Lottie options={defaultOptions} height={400} width={400} />
         </div>
-        <img src="assets/svg/doodle.svg" alt="" className="p-6 h-52 md:h-64" />
       </div>
       <RegistrationForm />
     </div>

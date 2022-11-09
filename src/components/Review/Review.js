@@ -27,21 +27,24 @@ const Review = ({ review, reviews, setReviews }) => {
   };
   return (
     <article className="p-6 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+        <time pubdate dateTime="2022-03-12" title="March 12th, 2022">
+          Mar. 12, 2022
+        </time>
+      </p>
       <footer className="flex justify-between items-center mb-2">
         <div className="flex items-center">
           <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
             <img
               referrerpolicy="no-referrer"
               className="mr-2 w-6 h-6 rounded-full"
-              src={user.photoURL}
+              src={review.photoURL}
               alt="user image"
             />
-            {review.displayName}
-          </p>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
-            <time pubdate dateTime="2022-03-12" title="March 12th, 2022">
-              Mar. 12, 2022
-            </time>
+            <div className="flex flex-col">
+              {review.displayName}
+              <p className="text-xs text-yellow-600">{review.userEmail}</p>
+            </div>
           </p>
         </div>
         <div className="inline-flex items-center dropdown">
@@ -102,7 +105,8 @@ const Review = ({ review, reviews, setReviews }) => {
       <p className="text-gray-500 dark:text-gray-400">{reviewContent}</p>
       {location.pathname === "/my-reviews" && (
         <p className="text-xs text-blue-700 font-semibold">
-          Kitchen Name: <span className="text-yellow-500">{review.kitchenId.name}</span>
+          Kitchen Name:{" "}
+          <span className="text-yellow-500">{review.kitchenId.name}</span>
         </p>
       )}
       <>
