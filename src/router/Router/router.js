@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import AddKitchen from "../../pages/AddKitchen/AddKitchen";
+import Blog from "../../pages/Blog/Blog";
 import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 import Home from "../../pages/Home/Home";
 import Kitchen from "../../pages/Kitchen/Kitchen";
@@ -19,7 +20,9 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: async () => {
-          return fetch("/api/v1/kitchens?limit=3");
+          return fetch(
+            "https://ghost-kitchen-server.vercel.app/api/v1/kitchens?limit=3"
+          );
         },
       },
       {
@@ -38,7 +41,9 @@ const router = createBrowserRouter([
         path: "/kitchen/:id",
         element: <KitchenView />,
         loader: async ({ params }) => {
-          return fetch(`/api/v1/kitchens/${params.id}`);
+          return fetch(
+            `https://ghost-kitchen-server.vercel.app/api/v1/kitchens/${params.id}`
+          );
         },
       },
       {
@@ -56,6 +61,10 @@ const router = createBrowserRouter([
             <AddKitchen />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
       },
       {
         path: "*",

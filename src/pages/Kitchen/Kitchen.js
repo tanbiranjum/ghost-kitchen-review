@@ -10,7 +10,7 @@ const Kitchen = () => {
   useDocumentTitle("Kitchen - Ghost Kitchen");
 
   useEffect(() => {
-    fetch("/api/v1/kitchens")
+    fetch("https://ghost-kitchen-server.vercel.app/api/v1/kitchens")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

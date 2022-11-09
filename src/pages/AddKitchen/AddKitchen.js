@@ -13,7 +13,7 @@ const AddKitchen = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch("/api/v1/kitchens", {
+    fetch("https://ghost-kitchen-server.vercel.app/api/v1/kitchens", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

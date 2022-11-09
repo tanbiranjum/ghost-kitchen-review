@@ -6,7 +6,7 @@ const ReviewUpdateForm = ({ id, reviewContent, setReviewContent }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const content = e.target.content.value;
-    fetch(`http://localhost:3000/api/v1/reviews/${id}`, {
+    fetch(`https://ghost-kitchen-server.vercel.app/api/v1/reviews/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -11,7 +11,7 @@ const Review = ({ review, reviews, setReviews }) => {
   const location = useLocation();
 
   const handleDeleteReview = (id) => {
-    fetch(`/api/v1/reviews/${id}`, {
+    fetch(`https://ghost-kitchen-server.vercel.app/api/v1/reviews/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

@@ -20,7 +20,7 @@ const KitchenView = () => {
   const { data: kitchen } = useLoaderData();
 
   const onSubmit = (data) => {
-    fetch("/api/v1/reviews", {
+    fetch("https://ghost-kitchen-server.vercel.app/api/v1/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const KitchenView = () => {
   };
 
   useEffect(() => {
-    fetch(`/api/v1/reviews/kitchens/${params.id}`)
+    fetch(`https://ghost-kitchen-server.vercel.app/api/v1/reviews/kitchens/${params.id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data.data));
   }, []);

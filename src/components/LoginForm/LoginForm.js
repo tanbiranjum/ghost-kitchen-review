@@ -77,7 +77,7 @@ const LoginForm = () => {
   };
 
   const getTokenAndNavigate = (uid) => {
-    fetch("/api/v1/auth/token", {
+    fetch("https://ghost-kitchen-server.vercel.app/api/v1/auth/token", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

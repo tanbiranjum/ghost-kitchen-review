@@ -22,7 +22,7 @@ const MyReview = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch(`http://localhost:3000/api/v1/reviews/user/${user.uid}`, {
+    fetch(`https://ghost-kitchen-server.vercel.app/api/v1/reviews/user/${user.uid}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
