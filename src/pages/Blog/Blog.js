@@ -1,6 +1,8 @@
 import React from "react";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 const Blog = () => {
+  useDocumentTitle("Blog - Ghost Kitchen", true);
   return (
     <section className="dark:bg-gray-800 dark:text-gray-100">
       <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
