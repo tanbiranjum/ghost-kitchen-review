@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Card from "../../components/Card/Card";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 const Kitchen = () => {
+  useDocumentTitle("Kitchen - Ghost Kitchen");
   const kitchens = useLoaderData();
   const { user } = useContext(AuthContext);
   return (

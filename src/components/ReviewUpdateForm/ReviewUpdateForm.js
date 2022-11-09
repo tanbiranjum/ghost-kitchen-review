@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 import { getTokenFromLocalStorage } from "../../utils/utils";
 
 const ReviewUpdateForm = ({ id, reviewContent, setReviewContent }) => {
@@ -17,10 +18,14 @@ const ReviewUpdateForm = ({ id, reviewContent, setReviewContent }) => {
     })
       .then(() => {
         setReviewContent(content);
-        alert("Review updated successfully");
+        toast.success("Updated sucessfully!", {
+          icon: "😎",
+        });
       })
       .catch((err) => {
-        alert("Something went wrong");
+        toast.error("Something went wrong", {
+            icon: "😭",
+        });
       });
   };
   return (

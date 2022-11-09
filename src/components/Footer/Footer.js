@@ -31,28 +31,30 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6 ">
-              Campaigns
+            <a
+              target="_"
+              href="https://facebook.com"
+              className="mr-4 hover:underline md:mr-6"
+            >
+              Facebook
             </a>
           </li>
           <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6">
-              Blog
+            <a
+              target="_"
+              href="https://twitter.com/"
+              className="mr-4 hover:underline md:mr-6"
+            >
+              Twitter
             </a>
           </li>
           <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6">
-              Affiliate Program
-            </a>
-          </li>
-          <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6">
-              FAQs
-            </a>
-          </li>
-          <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6">
-              Contact
+            <a
+              target="_"
+              href="https://linkedin.com/"
+              className="mr-4 hover:underline md:mr-6"
+            >
+              Linkedin
             </a>
           </li>
         </ul>

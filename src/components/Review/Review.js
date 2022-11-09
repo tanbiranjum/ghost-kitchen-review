@@ -1,4 +1,6 @@
 import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
+import { useLocation } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { getTokenFromLocalStorage } from "../../utils/utils";
 import ReviewUpdateForm from "../ReviewUpdateForm/ReviewUpdateForm";
@@ -6,6 +8,8 @@ import ReviewUpdateForm from "../ReviewUpdateForm/ReviewUpdateForm";
 const Review = ({ review, reviews, setReviews }) => {
   const { user } = useContext(AuthContext);
   const [reviewContent, setReviewContent] = useState(review.content);
+  const location = useLocation();
+
   const handleDeleteReview = (id) => {
     fetch(`http://localhost:5000/api/v1/reviews/${id}`, {
       method: "DELETE",
@@ -16,6 +20,9 @@ const Review = ({ review, reviews, setReviews }) => {
     }).then(() => {
       const newReviews = reviews.filter((review) => review._id !== id);
       setReviews(newReviews);
+      toast.success("Deleted sucessfully!", {
+        icon: "😸",
+      });
     });
   };
   return (
@@ -93,6 +100,11 @@ const Review = ({ review, reviews, setReviews }) => {
         </div>
       </footer>
       <p className="text-gray-500 dark:text-gray-400">{reviewContent}</p>
+      {location.pathname === "/my-reviews" && (
+        <p className="text-xs text-blue-700 font-semibold">
+          Kitchen Name: <span className="text-yellow-500">{review.kitchenId.name}</span>
+        </p>
+      )}
       <>
         <div className="modal" id="update-review">
           <div className="modal-box">

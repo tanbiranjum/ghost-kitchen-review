@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import About from "../../components/About/About";
 import Card from "../../components/Card/Card";
 import Hero from "../../components/Hero/Hero";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
@@ -11,7 +12,8 @@ const Home = () => {
     <div className="container">
       <Hero />
       {!kitchens && <div>Loading...</div>}
-      <div className="flex gap-6 max-w-7xl mx-auto mt-7">
+      <h2 className="text-3xl text-center mt-8 font-bold">Ghost Kitchen</h2>
+      <div className="flex gap-6 max-w-7xl mx-auto mt-8">
         {kitchens &&
           kitchens?.data.map((kitchen) => (
             <Card key={kitchen._id} kitchen={kitchen} />
@@ -25,6 +27,7 @@ const Home = () => {
           SEE ALL
         </Link>
       </div>
+      <About />
       {/* START */}
       <section className="bg-white dark:bg-gray-900 mt-6">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
