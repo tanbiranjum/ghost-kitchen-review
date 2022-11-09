@@ -22,13 +22,16 @@ const MyReview = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch(`https://ghost-kitchen-server.vercel.app/api/v1/reviews/user/${user.uid}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": `Bearer ${getTokenFromLocalStorage()}`,
-      },
-    })
+    fetch(
+      `https://ghost-kitchen-server.vercel.app/api/v1/reviews/user/${user.uid}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": `Bearer ${getTokenFromLocalStorage()}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
@@ -39,8 +42,6 @@ const MyReview = () => {
         console.log(err);
       });
   }, []);
-
-  // TODO - If the user doesn't add any review, the page will show 'No reviews were added' at the middle of the page
 
   return (
     <div className="max-w-6xl mx-auto mt-4">

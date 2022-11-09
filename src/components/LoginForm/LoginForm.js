@@ -27,6 +27,7 @@ const LoginForm = () => {
 
   const { login, googleLogin, githubLogin } = useContext(AuthContext);
 
+  // If user is logged in, sign a token and navigate to home page
   const onSubmit = (data) => {
     setLoading(true);
     login(data.email, data.password)
@@ -76,6 +77,7 @@ const LoginForm = () => {
       });
   };
 
+  // Get token from server and navigate to home page
   const getTokenAndNavigate = (uid) => {
     fetch("https://ghost-kitchen-server.vercel.app/api/v1/auth/token", {
       method: "GET",
@@ -91,6 +93,8 @@ const LoginForm = () => {
         navigate("/");
       });
   };
+
+  // show loading spinner if loading is true
   if (loading) {
     return <LoadingSpinner />;
   }

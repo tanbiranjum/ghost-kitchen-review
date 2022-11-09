@@ -1,5 +1,4 @@
 import React from "react";
-import Lottie from "react-lottie";
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 import JoinNow from "../../assets/join now.svg";

@@ -13,7 +13,7 @@ const Header = () => {
     removeTokenFromLocalStorage();
     navigate("/login");
   };
-  // TODO - change header (use flowbite header)
+  
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
