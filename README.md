@@ -4,7 +4,7 @@ Give reviews to all cloud kitchen in service.
 
 ## Live Link
 
-- [Ghost Kitchen](https://ghost-kitchen-server.vercel.app/)
+- [Ghost Kitchen](https://ghost-kitchen-service.web.app)
 
 ## Features
 
