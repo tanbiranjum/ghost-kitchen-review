@@ -49,7 +49,7 @@ const MyReview = () => {
         My Reviews ({reviews.length})
       </p>
       {loading && <LoadingSpinner />}
-      {reviews ? (
+      {reviews.length !== 0 ? (
         reviews?.map((review) => (
           <Review
             key={review._id}
@@ -64,7 +64,7 @@ const MyReview = () => {
           <p className="text-yellow-500 text-4xl font-bold mt-4">
             Oh! Looks Like it's Empty Space!
           </p>
-          <p className="text-base text-violet-700 font-bold">
+          <p className="text-lg text-violet-700 font-bold">
             No reviews were added.
           </p>
         </div>
