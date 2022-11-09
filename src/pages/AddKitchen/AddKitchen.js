@@ -34,14 +34,14 @@ const AddKitchen = () => {
       });
   };
   return (
-    <section className="max-w-6xl mx-auto mt-4 dark:bg-gray-800 dark:text-gray-50">
+    <section className="max-w-6xl mx-auto mt-4 dark:bg-gray-800 my-8 dark:text-gray-50">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid"
       >
         <fieldset className="grid grid-cols-6 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
           <div className="space-y-2 col-span-full lg:col-span-2">
-            <p className="text-lg font-medium">Ghost Kitchen Information</p>
+            <p className="text-2xl font-bold text-yellow-600">Ghost Kitchen Information</p>
             <p className="text-sm">
               Please fill out the information below to add a new ghost kitchen
             </p>
@@ -56,7 +56,7 @@ const AddKitchen = () => {
                 {...register("name", { required: true })}
                 type="text"
                 placeholder="Kitchen name"
-                className="w-full rounded-md p-2 border outline-none focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+                className="w-full px-4 py-3 rounded-md border dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 outline-none focus:dark:border-violet-400"
               />
             </div>
             <div className="col-span-full sm:col-span-3">
@@ -68,7 +68,7 @@ const AddKitchen = () => {
                 {...register("website", { required: true })}
                 type="url"
                 placeholder="Website url"
-                className="w-full rounded-md p-2 border outline-none focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+                className="w-full px-4 py-3 rounded-md border dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 outline-none focus:dark:border-violet-400"
               />
             </div>
             <div className="col-span-full sm:col-span-3">
@@ -80,7 +80,7 @@ const AddKitchen = () => {
                 {...register("email", { required: true })}
                 type="email"
                 placeholder="Email"
-                className="w-full rounded-md p-2 border outline-none focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+                className="w-full px-4 py-3 rounded-md border dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 outline-none focus:dark:border-violet-400"
               />
             </div>
             <div className="col-span-full sm:col-span-3">
@@ -92,7 +92,7 @@ const AddKitchen = () => {
                 {...register("image", { required: true })}
                 type="text"
                 placeholder="image url"
-                className="w-full rounded-md p-2 border outline-none focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+                className="w-full px-4 py-3 rounded-md border dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 outline-none focus:dark:border-violet-400"
               />
             </div>
             <div className="col-span-full">
@@ -104,7 +104,7 @@ const AddKitchen = () => {
                 {...register("address", { required: true })}
                 type="text"
                 placeholder="your address"
-                className="w-full rounded-md p-2 border outline-none focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+                className="w-full px-4 py-3 rounded-md border dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 outline-none focus:dark:border-violet-400"
               />
             </div>
             <div className="col-span-full">
@@ -116,7 +116,7 @@ const AddKitchen = () => {
                 {...register("price", { required: true })}
                 type="number"
                 placeholder="Starting price"
-                className="w-full rounded-md p-2 border outline-none focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+                className="w-full px-4 py-3 rounded-md border dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 outline-none focus:dark:border-violet-400"
               />
             </div>
             <div className="col-span-full">
@@ -128,7 +128,7 @@ const AddKitchen = () => {
                 {...register("description", { required: true })}
                 type="text"
                 placeholder="description"
-                className="w-full rounded-md p-2 border outline-none focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+                className="w-full px-4 py-3 rounded-md border dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 outline-none focus:dark:border-violet-400"
               />
             </div>
           </div>
