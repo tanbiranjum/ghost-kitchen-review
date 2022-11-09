@@ -59,7 +59,7 @@ const MyReview = () => {
           />
         ))
       ) : (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center p-6 lg:p-0">
           <Lottie options={defaultOptions} height={250} width={250} />
           <p className="text-yellow-500 text-4xl font-bold mt-4">
             Oh! Looks Like it's Empty Space!
