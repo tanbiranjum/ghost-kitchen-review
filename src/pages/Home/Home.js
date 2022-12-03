@@ -23,7 +23,7 @@ const Home = () => {
       });
   });
   return (
-    <div className="container">
+    <div className="">
       <Hero />
       <h2 className="text-3xl text-center mt-8 font-bold">Ghost Kitchen</h2>
       {loading && <LoadingSpinner />}
