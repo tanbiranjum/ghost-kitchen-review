@@ -19,11 +19,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: async () => {
-          return fetch(
-            "https://ghost-kitchen-server.vercel.app/api/v1/kitchens?limit=3"
-          );
-        },
       },
       {
         path: "/login",
