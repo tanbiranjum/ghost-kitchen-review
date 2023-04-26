@@ -29,8 +29,8 @@ const ReviewUpdateForm = ({ id, reviewContent, setReviewContent }) => {
       });
   };
   return (
-    <div className="flex flex-col max-w-md p-6 rounded-md ml-2 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
-      <p className="text-center dark:text-gray-400">Update your review</p>
+    <div className="flex flex-col max-w-md p-6 rounded-md ml-2 sm:p-10 bg-gray-900 text-gray-100">
+      <p className="text-center text-gray-400">Update your review</p>
       <form
         className="space-y-12 ng-untouched ng-pristine ng-valid"
         onSubmit={handleSubmit}
@@ -45,7 +45,7 @@ const ReviewUpdateForm = ({ id, reviewContent, setReviewContent }) => {
               name="content"
               id="content"
               placeholder={reviewContent}
-              className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+              className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100"
             />
           </div>
         </div>
@@ -53,7 +53,7 @@ const ReviewUpdateForm = ({ id, reviewContent, setReviewContent }) => {
           <div>
             <button
               type="submit"
-              className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900"
+              className="w-full px-8 py-3 font-semibold rounded-md bg-violet-400 text-gray-900"
             >
               Update
             </button>

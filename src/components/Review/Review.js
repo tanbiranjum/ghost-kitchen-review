@@ -26,15 +26,15 @@ const Review = ({ review, reviews, setReviews }) => {
     });
   };
   return (
-    <article className="p-6 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+    <article className="p-6 text-base border-t border-gray-700 bg-gray-900">
+      <p className="text-sm text-gray-400 mb-1">
         <time pubdate dateTime="2022-03-12" title="March 12th, 2022">
           Mar. 12, 2022
         </time>
       </p>
       <footer className="flex justify-between items-center mb-2">
         <div className="flex items-center">
-          <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+          <p className="inline-flex items-center mr-3 text-sm text-white">
             <img
               referrerpolicy="no-referrer"
               className="mr-2 w-6 h-6 rounded-full"
@@ -50,7 +50,7 @@ const Review = ({ review, reviews, setReviews }) => {
         <div className="inline-flex items-center dropdown">
           <label
             tabIndex={review._id}
-            className="p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="p-2 text-sm font-medium text-center text-gray-400  rounded-lg focus:ring-4 focus:outline-none bg-gray-900 hover:bg-gray-700 focus:ring-gray-600"
           >
             <svg
               className="w-5 h-5"
@@ -71,7 +71,7 @@ const Review = ({ review, reviews, setReviews }) => {
               <li>
                 <a
                   href="#update-review"
-                  className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  className="block py-2 px-4 hover:bg-gray-600 hover:text-white"
                 >
                   Edit
                 </a>
@@ -85,7 +85,7 @@ const Review = ({ review, reviews, setReviews }) => {
               >
                 <a
                   href="#"
-                  className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  className="block py-2 px-4 hover:bg-gray-600 hover:text-white"
                 >
                   Remove
                 </a>
@@ -94,7 +94,7 @@ const Review = ({ review, reviews, setReviews }) => {
             <li>
               <a
                 href="#"
-                className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                className="block py-2 px-4 hover:bg-gray-600 hover:text-white"
               >
                 Report
               </a>
@@ -102,7 +102,7 @@ const Review = ({ review, reviews, setReviews }) => {
           </ul>
         </div>
       </footer>
-      <p className="text-gray-500 dark:text-gray-400">{reviewContent}</p>
+      <p className="text-gray-400">{reviewContent}</p>
       {location.pathname === "/my-reviews" && (
         <p className="text-xs text-blue-700 font-semibold">
           Kitchen Name:{" "}

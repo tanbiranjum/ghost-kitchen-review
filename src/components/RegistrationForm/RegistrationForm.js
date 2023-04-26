@@ -104,7 +104,7 @@ const RegistrationForm = () => {
   }
 
   return (
-    <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
+    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
       <h1 className="text-2xl font-bold text-center">Registration</h1>
       <p className="text-red-600 text-center">{error}</p>
       <form
@@ -112,7 +112,7 @@ const RegistrationForm = () => {
         className="space-y-6 ng-untouched ng-pristine ng-valid"
       >
         <div className="space-y-1 text-sm">
-          <label htmlFor="email" className="block dark:text-gray-400">
+          <label htmlFor="email" className="block text-gray-400">
             Display Name
           </label>
           <input
@@ -121,14 +121,14 @@ const RegistrationForm = () => {
             id="displayName"
             {...register("displayName")}
             placeholder="John Doe"
-            className="w-full px-4 py-3 rounded-md border dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 outline-none focus:dark:border-violet-400"
+            className="w-full px-4 py-3 rounded-md border border-gray-700 bg-gray-900 text-gray-100 outline-none focus:border-violet-400"
           />
-          <p className="dark:text-red-600">
+          <p className="text-red-600">
             {errors.displayName && errors.displayName.message}
           </p>
         </div>
         <div className="space-y-1 text-sm">
-          <label htmlFor="email" className="block dark:text-gray-400">
+          <label htmlFor="email" className="block text-gray-400">
             Email
           </label>
           <input
@@ -137,14 +137,12 @@ const RegistrationForm = () => {
             id="email"
             {...register("email")}
             placeholder="johndoe@mail.com"
-            className="w-full px-4 py-3 rounded-md border dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 outline-none focus:dark:border-violet-400"
+            className="w-full px-4 py-3 rounded-md border border-gray-700 bg-gray-900 text-gray-100 outline-none focus:border-violet-400"
           />
-          <p className="dark:text-red-600">
-            {errors.email && errors.email.message}
-          </p>
+          <p className="text-red-600">{errors.email && errors.email.message}</p>
         </div>
         <div className="space-y-1 text-sm">
-          <label htmlFor="email" className="block dark:text-gray-400">
+          <label htmlFor="email" className="block text-gray-400">
             Photo URL
           </label>
           <input
@@ -153,17 +151,17 @@ const RegistrationForm = () => {
             id="photoURL"
             {...register("photoURL")}
             placeholder="picsum.photos/200"
-            className="w-full px-4 py-3 rounded-md border dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 outline-none focus:dark:border-violet-400"
+            className="w-full px-4 py-3 rounded-md border border-gray-700 bg-gray-900 text-gray-100 outline-none focus:border-violet-400"
           />
           <p className="text-xs text-cyan-500">
             *If blank, placeholder image url will be used*
           </p>
-          <p className="dark:text-red-600">
+          <p className="text-red-600">
             {errors.displayName && errors.displayName.message}
           </p>
         </div>
         <div className="space-y-1 text-sm">
-          <label for="password" className="block dark:text-gray-400">
+          <label for="password" className="block text-gray-400">
             Password
           </label>
           <input
@@ -172,22 +170,22 @@ const RegistrationForm = () => {
             name="password"
             id="password"
             placeholder="Password"
-            className="w-full px-4 py-3 rounded-md border outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+            className="w-full px-4 py-3 rounded-md border outline-none border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400"
           />
-          <p className="dark:text-red-600">
+          <p className="text-red-600">
             {errors.password && errors.password.message}
           </p>
         </div>
-        <button className="flex justify-center items-center gap-1 w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">
+        <button className="flex justify-center items-center gap-1 w-full p-3 text-center rounded-sm text-gray-900 bg-violet-400">
           Register <HashLoader loading={loading} color="green" size={20} />
         </button>
       </form>
       <div className="flex items-center pt-4 space-x-1">
-        <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-        <p className="px-3 text-sm dark:text-gray-400">
+        <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
+        <p className="px-3 text-sm text-gray-400">
           Register with social accounts
         </p>
-        <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+        <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
       </div>
       <div className="flex justify-center space-x-4">
         <button
@@ -217,12 +215,12 @@ const RegistrationForm = () => {
           </svg>
         </button>
       </div>
-      <p className="text-xs text-center sm:px-6 dark:text-gray-400">
+      <p className="text-xs text-center sm:px-6 text-gray-400">
         Don't have an account?{" "}
         <Link
           rel="noopener noreferrer"
           to="/login"
-          className="underline dark:text-gray-100"
+          className="underline text-gray-100"
         >
           Sign in
         </Link>
